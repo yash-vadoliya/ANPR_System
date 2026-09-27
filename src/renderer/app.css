@@ -1,0 +1,531 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+  background: #0c1017;
+  color: #fff;
+  overflow: hidden;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background: #161c26;
+  border-bottom: 1px solid #28303f;
+}
+
+.add-btn {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.add-btn:hover {
+  background: #1d4ed8;
+}
+
+.main-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.camera-grid {
+  flex: 3;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 12px;
+  padding: 12px;
+  overflow-y: auto;
+  background: #080a0f;
+}
+
+.camera-tile {
+  background: #111620;
+  border: 1px solid #1f2937;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.tile-header {
+  padding: 8px 12px;
+  font-size: 13px;
+  background: #161c26;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  background: #ef4444;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.stream-viewport {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  background: #000;
+}
+
+.video-stream {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.plate-overlay-badge {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(0, 0, 0, 0.85);
+  border-left: 4px solid #10b981;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+.plate-title {
+  font-size: 10px;
+  color: #9ca3af;
+  display: block;
+}
+
+.plate-value {
+  font-size: 18px;
+  font-weight: bold;
+  color: #10b981;
+  letter-spacing: 1px;
+}
+
+.sidebar-log {
+  flex: 1;
+  min-width: 320px;
+  background: #111620;
+  border-left: 1px solid #28303f;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.log-list {
+  margin-top: 12px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.log-item {
+  background: #161c26;
+  border: 1px solid #28303f;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.log-plate {
+  font-size: 16px;
+  font-weight: bold;
+  color: #60a5fa;
+  letter-spacing: 0.5px;
+}
+
+.log-details {
+  font-size: 11px;
+  color: #9ca3af;
+  margin-top: 4px;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal-body {
+  background: #161c26;
+  border: 1px solid #28303f;
+  padding: 24px;
+  border-radius: 8px;
+  width: 420px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-body input,
+.modal-body select {
+  padding: 8px;
+  background: #0c1017;
+  border: 1px solid #28303f;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.modal-actions button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.save-btn {
+  background: #2563eb;
+  color: #fff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+  background: #0c1017;
+  color: #fff;
+  overflow: hidden;
+}
+
+/* Login Screen */
+.login-backdrop {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #1e293b, #0c1017);
+}
+
+.login-card {
+  background: #161c26;
+  border: 1px solid #28303f;
+  padding: 36px;
+  border-radius: 10px;
+  width: 380px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+}
+
+.login-card h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #f8fafc;
+}
+
+.login-subtitle {
+  font-size: 13px;
+  color: #94a3b8;
+  margin: 6px 0 20px 0;
+}
+
+.error-alert {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid #ef4444;
+  color: #f87171;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+  margin-bottom: 14px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  font-size: 12px;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.form-group input {
+  padding: 10px 12px;
+  background: #0c1017;
+  border: 1px solid #28303f;
+  color: #fff;
+  border-radius: 6px;
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: #3b82f6;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 10px;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+.login-btn:hover {
+  background: #1d4ed8;
+}
+
+/* Main App Layout */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background: #161c26;
+  border-bottom: 1px solid #28303f;
+}
+
+.header-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.add-btn {
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.add-btn:hover {
+  background: #1d4ed8;
+}
+
+.logout-btn {
+  background: #374151;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background: #4b5563;
+}
+
+.main-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Dynamic Layouts: Single vs Grid */
+.camera-grid {
+  flex: 3;
+  padding: 12px;
+  background: #080a0f;
+  overflow-y: auto;
+  display: grid;
+  gap: 12px;
+}
+
+.single-camera {
+  grid-template-columns: 1fr;
+}
+
+.two-cameras {
+  grid-template-columns: 1fr 1fr;
+}
+
+.multi-cameras {
+  grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+}
+
+.empty-prompt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #6b7280;
+  font-size: 15px;
+}
+
+/* Camera Tile */
+.camera-tile {
+  background: #111620;
+  border: 1px solid #1f2937;
+  border-radius: 6px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.tile-header {
+  padding: 8px 12px;
+  font-size: 13px;
+  background: #161c26;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.live-dot {
+  width: 8px;
+  height: 8px;
+  background: #10b981;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.live-status {
+  font-size: 11px;
+  color: #10b981;
+  margin-left: 4px;
+}
+
+.delete-cam-btn {
+  margin-left: auto;
+  background: transparent;
+  border: none;
+  color: #ef4444;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 2px 6px;
+}
+
+.delete-cam-btn:hover {
+  color: #f87171;
+}
+
+.stream-viewport {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-stream {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.plate-overlay-badge {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(0, 0, 0, 0.85);
+  border-left: 4px solid #10b981;
+  padding: 6px 12px;
+  border-radius: 4px;
+}
+
+.plate-title {
+  font-size: 10px;
+  color: #9ca3af;
+  display: block;
+}
+
+.plate-value {
+  font-size: 18px;
+  font-weight: bold;
+  color: #10b981;
+  letter-spacing: 1px;
+}
+
+.stream-footer {
+  padding: 6px 10px;
+  background: #0b0f17;
+  font-size: 11px;
+  color: #6b7280;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Sidebar Log */
+.sidebar-log {
+  flex: 1;
+  min-width: 320px;
+  max-width: 360px;
+  background: #111620;
+  border-left: 1px solid #28303f;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.log-list {
+  margin-top: 12px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.no-plates {
+  color: #6b7280;
+  font-size: 13px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.log-item {
+  background: #161c26;
+  border: 1px solid #28303f;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.log-plate {
+  font-size: 16px;
+  font-weight: bold;
+  color: #60a5fa;
+  letter-spacing: 0.5px;
+}
+
+.log-details {
+  font-size: 11px;
+  color: #9ca3af;
+  margin-top: 4px;
+}
